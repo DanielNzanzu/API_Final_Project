@@ -4,31 +4,64 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cross-Origin Resource Sharing (CORS) Configuration
+    | Default tax rate
     |--------------------------------------------------------------------------
     |
-    | Here you may configure your settings for cross-origin resource sharing
-    | or "CORS". This determines what cross-origin operations may execute
-    | in web browsers. You are free to adjust these settings as needed.
-    |
-    | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+    | This default tax rate will be used when you make a class implement the
+    | Taxable interface and use the HasTax trait.
     |
     */
 
-    'paths' => ['api/*'],
+    'tax' => 0,
 
-    'allowed_methods' => ['*'],
+    /*
+    |--------------------------------------------------------------------------
+    | Shoppingcart database settings
+    |--------------------------------------------------------------------------
+    |
+    | Here you can set the connection that the shoppingcart should use when
+    | storing and restoring a cart.
+    |
+    */
 
-    'allowed_origins' => ['*'],
+    'database' => [
 
-    'allowed_origins_patterns' => [],
+        'connection' => null,
 
-    'allowed_headers' => ['*'],
+        'table' => 'shoppingcart',
 
-    'exposed_headers' => [],
+    ],
 
-    'max_age' => 0,
+    /*
+    |--------------------------------------------------------------------------
+    | Destroy the cart on user logout
+    |--------------------------------------------------------------------------
+    |
+    | When this option is set to 'true' the cart will automatically
+    | destroy all cart instances when the user logs out.
+    |
+    */
 
-    'supports_credentials' => false,
+    'destroy_on_logout' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default number format
+    |--------------------------------------------------------------------------
+    |
+    | This defaults will be used for the formated numbers if you don't
+    | set them in the method call.
+    |
+    */
+
+    'format' => [
+
+        'decimals' => 2,
+
+        'decimal_point' => '.',
+
+        'thousand_seperator' => ''
+
+    ],
 
 ];
